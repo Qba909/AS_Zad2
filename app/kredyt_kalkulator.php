@@ -10,7 +10,7 @@ function getParams(&$x,&$y,&$z){
 	$z = isset($_REQUEST['z']) ? $_REQUEST['z'] : null;	
 }
 
-
+function validate(&$x,&$y,&$z,&$messages){
 if ( ! (isset($x) && isset($y) && isset($z))) {
 	return false;
 }
@@ -25,7 +25,6 @@ if ( $y == "") {
 if ( $z == "") {
 	$messages [] = 'Nie podano ilosci rat';
 }
-if (count ( $messages ) != 0) return false;
 
 if (empty( $messages )) {
 	
@@ -42,7 +41,13 @@ if (empty( $messages )) {
 	}	
 
 }
+if (count ( $messages ) != 0) return false;
+	else return true;
+}
 
+
+function process(&$x,&$y,&$z,&$messages,&$result){
+	global $role;
 if (empty ( $messages )) {
 	
 	$x = intval($x);
@@ -51,7 +56,7 @@ if (empty ( $messages )) {
 
         $result = ($x + ($x * $y / 100)) / $z;
 }
-
+}
 $x = null;
 $y = null;
 $z = null;
