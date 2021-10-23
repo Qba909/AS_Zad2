@@ -20,11 +20,11 @@
         <legend>Kalkulator Kredytowy</legend>
         <fieldset>
 	<label for="id_x">Kwota kredytu: </label>
-	<input id="id_x" type="text" name="x" value="<?php print($x); ?>" /><br />
+        <input id="id_x" type="text" name="x" value="<?php out($x) ?>" />
 	<label for="id_y">Oproentowanie: </label>
-	<input id="id_y" type="text" name="y" value="<?php print($y); ?>" /><br />
+        <input id="id_y" type="text" name="y" value="<?php out($y) ?>" />
         <label for="id_y">Ilość rat: </label>
-	<input id="id_y" type="text" name="z" value="<?php print($z); ?>" /><br />
+        <input id="id_z" type="text" name="z" value="<?php out($z) ?>" />
 	</fieldset>	
 	<input type="submit" value="Oblicz" class="pure-button pure-button-primary" />
 </form>	
@@ -46,6 +46,8 @@ if (isset($messages)) {
 <?php echo 'Wynik: '.$result; ?>
 </div>
 <?php } ?>
-
+        
+</div>
+    
 </body>
 </html>
